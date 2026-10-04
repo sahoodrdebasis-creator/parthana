@@ -1,0 +1,912 @@
+/* =========================================
+   GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #fff8fa;
+    color: #3b2730;
+    overflow-x: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+button,
+a {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================
+   FLOATING HEARTS
+========================================= */
+
+#hearts-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -30px;
+    font-size: 18px;
+    animation: floatHeart linear forwards;
+    opacity: 0.7;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.intro {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 182, 193, .4), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(255, 214, 224, .5), transparent 30%),
+        #fff8fa;
+
+    padding: 30px;
+}
+
+.intro-content {
+    max-width: 700px;
+    animation: fadeUp 1.2s ease;
+}
+
+.sparkle {
+    font-size: 55px;
+    animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+
+    0%, 100% {
+        transform: scale(1) rotate(0);
+    }
+
+    50% {
+        transform: scale(1.2) rotate(10deg);
+    }
+}
+
+.small-text {
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #ad7286;
+    margin: 20px 0;
+}
+
+.intro h1 {
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(60px, 10vw, 110px);
+    line-height: .9;
+    font-weight: 600;
+}
+
+.intro h1 span {
+    color: #d65b7b;
+}
+
+.intro-message {
+    max-width: 500px;
+    margin: 30px auto;
+    color: #765c66;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.main-btn {
+    border: none;
+    background: #d65b7b;
+    color: white;
+    padding: 15px 28px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: .3s;
+    box-shadow: 0 10px 30px rgba(214, 91, 123, .25);
+}
+
+.main-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(214, 91, 123, .35);
+}
+
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    background: rgba(255, 248, 250, .85);
+    backdrop-filter: blur(15px);
+
+    border-bottom: 1px solid rgba(214, 91, 123, .1);
+
+    z-index: 100;
+}
+
+.logo {
+    font-family: "Dancing Script", cursive;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.logo span {
+    color: #d65b7b;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #604851;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: #d65b7b;
+}
+
+.music-btn {
+    border: 1px solid #d65b7b;
+    background: transparent;
+    color: #d65b7b;
+    padding: 9px 15px;
+    border-radius: 30px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    min-height: 100vh;
+    padding: 140px 8% 80px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+
+    background:
+        radial-gradient(circle at 90% 20%, #ffe2e9, transparent 35%);
+}
+
+.hero-content {
+    animation: fadeUp 1s ease;
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 11px;
+    color: #c07189;
+    margin-bottom: 20px;
+}
+
+.hero h2 {
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(60px, 7vw, 100px);
+    line-height: .95;
+    margin-bottom: 30px;
+}
+
+.hero h2 span {
+    color: #d65b7b;
+}
+
+.hero-content > p:not(.eyebrow) {
+    max-width: 550px;
+    line-height: 1.9;
+    color: #725d65;
+    margin-bottom: 35px;
+}
+
+.hero-photo {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.photo-frame {
+    width: min(430px, 90%);
+    padding: 12px;
+    background: white;
+    box-shadow: 0 25px 60px rgba(90, 45, 60, .15);
+    transform: rotate(3deg);
+    animation: photoFloat 4s ease-in-out infinite;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+@keyframes photoFloat {
+
+    0%, 100% {
+        transform: rotate(3deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(-2deg) translateY(-12px);
+    }
+}
+
+.floating-note {
+    position: absolute;
+    bottom: 30px;
+    left: 5%;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    font-size: 12px;
+    max-width: 220px;
+}
+
+
+/* =========================================
+   SECTIONS
+========================================= */
+
+.section {
+    padding: 120px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.section-heading p {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: #c07189;
+    margin-bottom: 12px;
+}
+
+.section-heading h2 {
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(50px, 6vw, 75px);
+    margin-bottom: 15px;
+}
+
+.section-heading span {
+    color: #806b73;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   TIMELINE
+========================================= */
+
+.timeline {
+    max-width: 1000px;
+    margin: auto;
+    position: relative;
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #f0c3ce;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    margin-bottom: 70px;
+    position: relative;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 20px;
+
+    width: 45px;
+    height: 45px;
+
+    background: white;
+    border: 2px solid #e99aae;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.timeline-card {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(80, 40, 50, .08);
+}
+
+.timeline-card:nth-child(even),
+.timeline-item:nth-child(even) .timeline-card {
+    margin-left: auto;
+}
+
+.timeline-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.timeline-text {
+    padding: 25px;
+}
+
+.timeline-text small {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #d65b7b;
+}
+
+.timeline-text h3 {
+    margin: 8px 0;
+    font-family: "Dancing Script", cursive;
+    font-size: 32px;
+}
+
+.timeline-text p {
+    color: #76656b;
+    line-height: 1.7;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   GALLERY
+========================================= */
+
+.gallery-section {
+    background: #fff;
+}
+
+.gallery {
+    max-width: 1100px;
+    margin: auto;
+
+    columns: 3 250px;
+    column-gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    margin-bottom: 20px;
+    break-inside: avoid;
+    overflow: hidden;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+    transition: .5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: flex-end;
+
+    padding: 20px;
+
+    background: linear-gradient(transparent, rgba(30,10,20,.7));
+
+    opacity: 0;
+    transition: .4s;
+}
+
+.gallery-overlay span {
+    color: white;
+    font-family: "Dancing Script", cursive;
+    font-size: 28px;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+
+/* =========================================
+   REASONS
+========================================= */
+
+.reasons-section {
+    background:
+        radial-gradient(circle at 10% 90%, #ffe1e8, transparent 30%),
+        #fff8fa;
+}
+
+.reason-grid {
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.reason-card {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 20px;
+    text-align: center;
+    transition: .3s;
+    border: 1px solid #f8dce3;
+}
+
+.reason-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(100,40,60,.1);
+}
+
+.reason-icon {
+    font-size: 42px;
+    margin-bottom: 18px;
+}
+
+.reason-card h3 {
+    font-family: "Dancing Script", cursive;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.reason-card p {
+    color: #76656b;
+    line-height: 1.7;
+    font-size: 13px;
+}
+
+
+/* =========================================
+   SECRET
+========================================= */
+
+.secret-section {
+    padding: 130px 8%;
+    background: #38232b;
+    color: white;
+    text-align: center;
+}
+
+.secret-box {
+    max-width: 700px;
+    margin: auto;
+}
+
+.lock {
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.secret-box h2 {
+    font-family: "Dancing Script", cursive;
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.secret-box > p {
+    color: #d9c5cc;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.secret-message {
+    margin-top: 40px;
+    padding: 35px;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 20px;
+    animation: fadeUp .8s ease;
+}
+
+.secret-message h3 {
+    font-family: "Dancing Script", cursive;
+    font-size: 38px;
+    color: #ffb7c8;
+    margin-bottom: 15px;
+}
+
+.secret-message p {
+    color: #eadde1;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   LETTER
+========================================= */
+
+.letter-section {
+    background: #fff;
+}
+
+.letter {
+    max-width: 800px;
+    margin: auto;
+
+    background: #fffaf2;
+
+    padding: 60px 70px;
+
+    box-shadow: 0 20px 60px rgba(70,40,30,.1);
+
+    position: relative;
+}
+
+.letter::before {
+    content: "";
+    position: absolute;
+    inset: 15px;
+    border: 1px solid #ead4bd;
+    pointer-events: none;
+}
+
+.letter-top {
+    text-align: center;
+    font-size: 45px;
+}
+
+.letter-small {
+    text-align: center;
+    letter-spacing: 4px;
+    font-size: 10px;
+    color: #a47c63;
+    margin: 10px 0 30px;
+}
+
+.letter h2 {
+    font-family: "Dancing Script", cursive;
+    font-size: 55px;
+    margin-bottom: 30px;
+}
+
+.letter-body {
+    position: relative;
+    z-index: 1;
+}
+
+.letter-body p {
+    color: #6f5a4f;
+    line-height: 2;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.signature {
+    font-family: "Dancing Script", cursive;
+    font-size: 25px !important;
+    color: #8d6250 !important;
+    margin-top: 40px;
+}
+
+
+/* =========================================
+   FINAL
+========================================= */
+
+.final-section {
+    min-height: 80vh;
+    padding: 120px 8%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        radial-gradient(circle, #ffe0e7, transparent 50%),
+        #fff8fa;
+}
+
+.final-content {
+    max-width: 650px;
+}
+
+.big-heart {
+    font-size: 100px;
+    color: #d65b7b;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.final-section h2 {
+    font-family: "Dancing Script", cursive;
+    font-size: 75px;
+}
+
+.final-section p {
+    color: #77626a;
+    margin: 15px 0 30px;
+}
+
+.final-message {
+    margin-top: 35px;
+    animation: fadeUp .8s ease;
+}
+
+.final-message h3 {
+    font-family: "Dancing Script", cursive;
+    font-size: 40px;
+}
+
+.final-message p {
+    max-width: 500px;
+    margin: 15px auto;
+    line-height: 1.8;
+}
+
+.heart-line {
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background: #38232b;
+    color: white;
+}
+
+footer p {
+    font-family: "Dancing Script", cursive;
+    font-size: 25px;
+}
+
+footer .footer-small {
+    font-family: "Poppins", sans-serif;
+    font-size: 10px;
+    color: #cbb9bf;
+    margin-top: 8px;
+}
+
+
+/* =========================================
+   IMAGE MODAL
+========================================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(20, 10, 15, .92);
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 1000;
+
+    padding: 30px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal img {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+
+    color: white;
+    font-size: 45px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 850px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-content > p:not(.eyebrow) {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-photo {
+        margin-top: 30px;
+    }
+
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-dot {
+        left: 20px;
+    }
+
+    .timeline-card,
+    .timeline-item:nth-child(even) .timeline-card {
+        width: calc(100% - 60px);
+        margin-left: 60px;
+    }
+
+    .reason-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .letter {
+        padding: 45px 30px;
+    }
+
+}
+
+@media (max-width: 550px) {
+
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .music-btn {
+        font-size: 11px;
+    }
+
+    .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .reason-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .secret-box h2 {
+        font-size: 45px;
+    }
+
+    .letter {
+        padding: 35px 20px;
+    }
+
+}
